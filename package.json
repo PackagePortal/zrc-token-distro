@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "@zilliqa-js/crypto": "^1.0.0-alpha.1",
+    "@zilliqa-js/zilliqa": "^1.0.0-alpha.1",
+    "bn.js": "^5.2.0",
+    "dotenv": "^8.6.0",
+    "glob": "^7.1.7",
+    "js": "^0.1.0",
+    "keccak256": "^1.0.3",
+    "merkletreejs": "^0.2.24",
+    "mocha": "^7.1.1",
+    "moment": "^2.29.1",
+    "node-cron": "^3.0.0",
+    "should": "^13.2.3",
+    "tslib": "^1.14.1",
+    "uuid": "^8.3.2",
+  },
+  "scripts": {
+    "test": "mocha"
+  }
+}
