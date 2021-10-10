@@ -7,17 +7,6 @@ const {
 } = require('@zilliqa-js/crypto'); // https://github.com/Zilliqa/Zilliqa-JavaScript-Library/tree/dev/packages/zilliqa-js-crypto
 
 module.exports = {
-  address: {
-    safelyConvertToByStr20(address) {
-      var address;
-      try {
-        const bech32prefix = new RegExp('^zil');
-        if (bech32prefix.test(address)) address = fromBech32Address(address); // ensure ByStr20 compatible
-      } catch (e) { console.log(e); } 
-
-      return address;
-    }
-  },
   transactions: {
 	 build(operation, params, tag, metadata) {
 		let operations = {	
