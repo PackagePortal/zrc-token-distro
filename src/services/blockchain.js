@@ -14,8 +14,8 @@ var zilliqa = new Zilliqa(config[config.env].endpoint);
 var initialized = false;
 
 // internal init
-async function syncronize(privateKey = config[config.env].walletPrivateKey) {
-  console.log("environment " + config.env);
+async function init(privateKey = config[config.env].walletPrivateKey) {
+  console.log("zil blockchain init environment " + config.env);
 
   let balance = null;
 
@@ -39,10 +39,10 @@ async function getContractState(address) {
 
 async function callTransaction(tx, privateKey = config[config.env].walletPrivateKey) {
   try {
-    if (initialized == false) await syncronize(privateKey);
+    if (initialized == false) await init(privateKey);
     
     if (await canPerformTransaction(getAddressFromPrivateKey(privateKey)) == false) 
-      throw models.contract.failureResult("TransactionFailureInsufficientGas");
+      throw "TransactionFailureInsufficientGas";
 
     try {
       parameters = JSON.parse(tx.parameters);

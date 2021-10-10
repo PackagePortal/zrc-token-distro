@@ -8,8 +8,6 @@ const models = require('./components/models');
 async function constructMerkleRoot(leaves, completion) {
     // construct merkle root with transactions for current epoch
   	await distributor.constructMerkleRoot(leaves, async (merkle) => {
-  		console.log(`merkle root: ${merkle.root.toString('hex')} for epoch: ${merkle.epoch}`);
-
   		// set merkle root on distributor contract
     	const tx = models.transactions.build("SetMerkleRoot", { epochNumber: merkle.epoch, merkleRoot: merkle.root }, tag = "distributor");
     	const result = await blockchain.callTransaction(tx);
@@ -21,7 +19,6 @@ async function constructMerkleRoot(leaves, completion) {
 
 async function claim(transaction) {
   	// via contract
-  	console.log(`claim for ${transaction.address} amount ${transaction.amount} proof ${transaction.proof}`);
   	const claimTx = models.transactions.build("Claim", { epochNumber: transaction.epoch, address: transaction.address, amount: transaction.amount, 
 		proof: transaction.proof }, tag = "distributor")
   	
