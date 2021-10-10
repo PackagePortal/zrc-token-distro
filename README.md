@@ -11,8 +11,8 @@ contracts leverage the merkle tree data structure for the claim verification.
 - first, lets say you have some input of transactions that you want to "store", and some users that want to claim rewards for these transactions. periodically, you'd set a merkle root, essentially the head hash of a previously constructed merkle tree of transactions per a specific time period, or epoch. depending on how much you want to leave on the end-user for validating their inclusion to claim their reward, you may want to store these transactions with their respective proofs to ease the claiming process. then, when a user sends a claim request, your system can lookup the respective transactions proof internally, provide that for the user and help them claim the reward. while your system helps prove inclusion for the user, its a means of fascilitating a reward system reliant on the user manually claiming vs. crediting per transaction separately, which could become quite the gas guzzler. 
 - example: for epoch 0 (the starting period), you'd construct a merkle tree for all the transactions that transpired over this epoch,
 ```
-const leaves = [new MerkleTransaction("0x732514cfd4e5015D6F12652cdBA7B2fc0C72DfD9", "1"),
-						new MerkleTransaction("0x732514cfd4e5015D6F12652cdBA7B2fc0C72DfD9", "2")].map(x => x.hash);
+const leaves = [new MerkleTransaction("0x732514cfd4e5012D6F12652cdBA7B2fc0C72DfD9", 1),
+						new MerkleTransaction("0x732514cfd4e5012D6F12652cdBA7B2fc0C72DfD9", 2)].map(x => x.hash);
 const tree = new MerkleTree(leaves, keccak256, { sortLeaves: true, sort: true } ); // this example uses keccak256 has the leave hashing
 const root = tree.getRoot().toString('hex');
 ```
@@ -37,7 +37,7 @@ additional resource: https://medium.com/builders-of-zilliqa/token-distributors-i
 - `cd zil-token-distro`
 - `npm install`
 
-- `configure ENV (dev|prod|sim) & PK (a zilliqa wallet with sufficient gas's private key) variables in a local .env
+- configure ENV (dev|prod|sim) & PK (a zilliqa wallet with sufficient gas's private key) variables in a local .env
 - `node example-cron` (set merkle cron example)
 - `node example` (set merkle root & claim example)
 
