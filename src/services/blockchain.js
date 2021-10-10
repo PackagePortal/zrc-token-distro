@@ -81,9 +81,7 @@ async function callTransaction(tx, privateKey = config[config.env].walletPrivate
 
 /* UTILS */
 async function canPerformTransaction(address) {
-  const balance = await zilliqa.blockchain.getBalance(address);
-  //config.nonce = balance.result.nonce; // nonce alignment
-  
+  const balance = await zilliqa.blockchain.getBalance(address);  
   if (balance == null || balance.result.balance == null) return false;
   
   if (units.fromQa(new BN(balance.result.balance), units.Units.Zil) < 8000) {
@@ -101,4 +99,3 @@ async function canPerformTransaction(address) {
 
 module.exports.getContractState = getContractState;
 module.exports.callTransaction = callTransaction;
-module.exports.syncronize = syncronize;

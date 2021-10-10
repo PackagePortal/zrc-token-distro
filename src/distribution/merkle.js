@@ -28,6 +28,7 @@ class MerkleTransaction {
 
 	// store root & proof, helps if storing these internally somewhere to help users claim in the future (to provide the respective proofs)
 	setTree(tree) {
+		console.log(this.hash);
 		this.proof = tree.getHexProof(this.hash);
 		this.root = tree.getRoot();
 	}

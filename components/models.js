@@ -34,8 +34,8 @@ module.exports = {
         }],
         success_code: "MerkleRootSet"
       },
-    Claim: {
-      params: [{
+      Claim: {
+        params: [{
           vname: 'claim',
           type: `${config[config.env].contracts["distributor"].address}.Claim`,
           value: {
@@ -54,13 +54,14 @@ module.exports = {
         }],
         success_code: "Claimed"
       },
-  };
+    };
 	
 		return { operation: operation, 
 					   parameters: operations[operation].params, 
              tag: tag,
-					   success_code: operations[operation].success_code};
-	         },
+					   success_code: operations[operation].success_code
+           };
+	 },
   },
   contract: {
     // zil payload reference: https://scilla.readthedocs.io/en/latest/interface.html

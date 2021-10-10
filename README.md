@@ -37,6 +37,7 @@ additional resource: https://medium.com/builders-of-zilliqa/token-distributors-i
 - `cd zil-token-distro`
 - `npm install`
 
+- `configure ENV (dev|prod|sim) & PK (a zilliqa wallet with sufficient gas's private key) variables in a local .env
 - `node example-cron` (set merkle cron example)
 - `node example` (set merkle root & claim example)
 

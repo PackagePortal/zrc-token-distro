@@ -31,13 +31,14 @@ async function claim(transaction) {
 
 async function ConstructMerkleRootAndClaimExample() {
 	// transaction input for current epoch
-	let sampleTransactions = [new MerkleTransaction("0x732514cfd4e5015D6F12652cdBA7B2fc0C72DfD9", "1"),
-						new MerkleTransaction("0x732514cfd4e5015D6F12652cdBA7B2fc0C72DfD9", "2"), 
-						new MerkleTransaction("0x89C0d175D9d9E3c9fa2F89Ca3752eB03f0C65D43", "1"),
-        				new MerkleTransaction("0x89C0d175D9d9E3c9fa2F89Ca3752eB03f0C65D43", "2"),
-        				new MerkleTransaction("0x628A50C412b9Da136bE7D8401e101Ca46b3863B4", "1"),
-        				new MerkleTransaction("0x628A50C412b9Da136bE7D8401e101Ca46b3863B4", "2")];
-
+	let sampleTransactions = [
+    new MerkleTransaction("0x446c4DEeA95afAcC3E41D552d55dE376A2908AE0", 1),
+		new MerkleTransaction("0x446c4DEeA95afAcC3E41D552d55dE376A2908AE0", 2), 
+		new MerkleTransaction("0x89C0d175D9d9E3c9fa2F89Ca3752eB03f0C65D43", 1),
+  	new MerkleTransaction("0x89C0d175D9d9E3c9fa2F89Ca3752eB03f0C65D43", 2),
+ 		new MerkleTransaction("0x628A50C412b9Da136bE7D8401e101Ca46b3863B4", 1),
+    new MerkleTransaction("0x628A50C412b9Da136bE7D8401e101Ca46b3863B4", 2)
+  ];
 
 	await constructMerkleRoot(sampleTransactions, async (merkle) => {
 		// example claim on the first transaction

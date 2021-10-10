@@ -82,7 +82,7 @@ let none = None {ByStr20}
 (*             The contract definition             *)
 (***************************************************)
 
-contract Distributor
+contract TokenDistributor
 (
   token_contract : ByStr20,
   init_owner : ByStr20
