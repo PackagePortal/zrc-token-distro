@@ -1,6 +1,4 @@
 const { BN, Long, bytes, units } = require('@zilliqa-js/util');
-
-const ChainId = 333; // dev = 333; prod = 1
 const MsgVersion = 1;
 
 const dotenv = require('dotenv');
@@ -24,17 +22,10 @@ module.exports = {
     
     endpoint: '',
     _version: bytes.pack(1, MsgVersion),
-    
-    walletPrivateKey: process.env.PK,
-    
-    deploy: {
-      myGasPrice: units.toQa('3000', units.Units.Li),
-      gasLimit: Long.fromNumber(10000)
-    },
-    transaction: {
-      myGasPrice: units.toQa('2200', units.Units.Li),
-      gasLimit: Long.fromNumber(25000)
-    },
+    myGasPrice: units.toQa('3000', units.Units.Li),
+    gasLimit: Long.fromNumber(10000),
+        
+    walletPrivateKey: process.env.PK
   },
   
   dev: {
@@ -46,17 +37,10 @@ module.exports = {
     
     endpoint: 'https://dev-api.zilliqa.com',
     _version: bytes.pack(333, MsgVersion),
-    
+    myGasPrice: units.toQa('3000', units.Units.Li),
+    gasLimit: Long.fromNumber(10000),
+
     walletPrivateKey: process.env.PK,
-    
-    deploy: {
-      myGasPrice: units.toQa('3000', units.Units.Li),
-      gasLimit: Long.fromNumber(10000)
-    },
-    transaction: {
-      myGasPrice: units.toQa('2200', units.Units.Li),
-      gasLimit: Long.fromNumber(25000)
-    },
   },
   sim: {
     contracts: {
@@ -67,17 +51,10 @@ module.exports = {
     
     endpoint: 'https://zilliqa-isolated-server.zilliqa.com/',
     _version: bytes.pack(222, MsgVersion), 
-    
+    myGasPrice: units.toQa('3000', units.Units.Li),
+    gasLimit: Long.fromNumber(10000),
+
     walletPrivateKey: process.env.PK,
-    
-    deploy: {
-      myGasPrice: units.toQa('3000', units.Units.Li), 
-      gasLimit: Long.fromNumber(10000)
-    },
-    transaction: {
-      myGasPrice: units.toQa('2200', units.Units.Li),
-      gasLimit: Long.fromNumber(25000)
-    },
   },
 
   // tests

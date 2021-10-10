@@ -4,6 +4,7 @@ const sha256 = require('keccak256');
 const keccak256 = require('keccak256');
 const web3 = require("web3");
 
+// hash function for individual leaves; in this example we leverage keccak256 & use the account & amount concatted; see the scilla distributor contract `hash_leaves` for more
 const hash = (account, amount) => {
     amount =  web3.utils.leftPad(amount, 32, 0);
     const amount_hash = keccak256(amount).toString("hex");
@@ -22,9 +23,10 @@ class MerkleTransaction {
 	}
 
 	getHash() {
-		return hash(this.address, this.amount); // align with merkle tree distributor smart contract
+		return hash(this.address, this.amount);
 	}
 
+	// store root & proof, helps if storing these internally somewhere to help users claim in the future (to provide the respective proofs)
 	setTree(tree) {
 		this.proof = tree.getHexProof(this.hash);
 		this.root = tree.getRoot();

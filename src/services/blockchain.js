@@ -39,7 +39,7 @@ async function getContractState(address) {
 
 async function callTransaction(tx, privateKey = config[config.env].walletPrivateKey) {
   try {
-    if (notAdmin(privateKey) || initialized == false || tx.tag == "wallet") await syncronize(privateKey);
+    if (initialized == false) await syncronize(privateKey);
     
     if (await canPerformTransaction(getAddressFromPrivateKey(privateKey)) == false) 
       throw models.contract.failureResult("TransactionFailureInsufficientGas");
@@ -61,8 +61,8 @@ async function callTransaction(tx, privateKey = config[config.env].walletPrivate
         nonce: config.nonce,
         toAddr: toBech32Address(config[config.env].contracts[tx.tag].address),
         amount: new BN(units.toQa('1', units.Units.Zil)), 
-        gasPrice: config[config.env].transaction.myGasPrice, 
-        gasLimit: config[config.env].transaction.gasLimit,
+        gasPrice: config[config.env].myGasPrice, 
+        gasLimit: config[config.env].gasLimit,
         code: "",
         data: JSON.stringify(msg)
       }),
@@ -97,10 +97,6 @@ async function canPerformTransaction(address) {
   
   const minGasPrice = await zilliqa.blockchain.getMinimumGasPrice();
   return new BN(balance.result.balance).gte(new BN(minGasPrice.result));
-}
-
-function notAdmin(pk) {
-  return (pk != config[config.env].walletPrivateKey);
 }
 
 module.exports.getContractState = getContractState;
