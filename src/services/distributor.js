@@ -23,9 +23,6 @@ async function constructMerkleRoot(transactions, completion) {
     
     transactions = transactions.map((x) => { x.setTree(tree); return x; }); // align with tree (root, and proofs)
     transactions = transactions.map((x) => { x.epoch = String(epoch); return x; }); // override with current epoch; probably necessary if storing somewhere
-    
-    const proof = tree.getProof(transactions[0].hash)
-    console.log(tree.verify(proof, transactions[0].hash, root)) // true
 
     completion({ leaves: transactions, epoch: epoch, root: root });
   } catch (ex) {
