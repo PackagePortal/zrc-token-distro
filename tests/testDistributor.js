@@ -1,5 +1,6 @@
-const liquidity = require('../src/distribution/distributor');
-const { MerkleTransaction, MerkleTree, hash} = require('./src/distribution/merkle');
+const liquidity = require('../src/services/distributor');
+const { MerkleTransaction, MerkleTree, hash} = require('../src/distribution/merkle');
+const keccak256 = require('keccak256');
 
 const assert = require('assert');
 
