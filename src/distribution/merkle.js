@@ -1,6 +1,4 @@
 const { MerkleTree } = require('merkletreejs')
-const sha256 = require('keccak256');
-
 const keccak256 = require('keccak256');
 const web3 = require("web3");
 
