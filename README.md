@@ -13,7 +13,7 @@ contracts leverage the merkle tree data structure for the claim verification.
 ```
 const leaves = [new MerkleTransaction("0x732514cfd4e5012D6F12652cdBA7B2fc0C72DfD9", 1),
 						new MerkleTransaction("0x732514cfd4e5012D6F12652cdBA7B2fc0C72DfD9", 2)].map(x => x.hash);
-const tree = new MerkleTree(leaves, keccak256, { sortLeaves: true, sort: true } ); // this example uses keccak256 has the leave hashing
+const tree = new MerkleTree(leaves, keccak256, { sortLeaves: true, sort: true } ); // this example uses keccak256 for leaf hashes
 const root = tree.getRoot().toString('hex');
 ```
 set it's root on the distributor, 
