@@ -2,7 +2,8 @@ const { MerkleTree } = require('merkletreejs')
 const keccak256 = require('keccak256');
 const web3 = require("web3");
 
-// hash function for individual leaves; in this example we leverage keccak256 & use the account & amount concatted; see the scilla distributor contract `hash_leaves` for more
+// hash function for individual leaves; in this example we leverage keccak256 & use the account & amount concatted; 
+// see the scilla distributor contract `hash_leaves` for additional reference, as they must match
 const hash = (account, amount) => {
     amount =  web3.utils.leftPad(amount, 32, 0);
     const amount_hash = keccak256(amount).toString("hex");

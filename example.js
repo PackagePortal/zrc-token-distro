@@ -1,8 +1,6 @@
 const distributor = require('./src/services/distributor');
 const blockchain = require('./src/services/blockchain');
-const { MerkleTransaction, MerkleTree, Options, hash, hash_leaves} = require('./src/distribution/merkle');
-const config = require('./components/config');
-const keccak256 = require('keccak256');
+const { MerkleTransaction } = require('./src/distribution/merkle');
 const models = require('./components/models');
 
 async function constructMerkleRoot(leaves, completion) {
