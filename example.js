@@ -17,8 +17,9 @@ async function constructMerkleRoot(leaves, completion) {
 
 async function claim(transaction) {
   	// via contract
-  	const claimTx = models.transactions.build("Claim", { epochNumber: transaction.epoch, address: transaction.address, amount: transaction.amount, 
-		proof: transaction.proof }, tag = "distributor")
+  	const claimTx = models.transactions.build("Claim", 
+      { epochNumber: transaction.epoch, address: transaction.address, amount: transaction.amount, proof: transaction.proof }, 
+      tag = "distributor")
   	
   	const result = await blockchain.callTransaction(claimTx);
   	console.log(result);
