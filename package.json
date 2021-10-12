@@ -17,6 +17,6 @@
     "web3": "^1.5.3"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha tests/*"
   }
 }
