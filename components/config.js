@@ -26,7 +26,7 @@ module.exports = {
   dev: {
     contracts: {
       distributor: {
-        address: "0x75d2a734489e594111dd7256e0d9cef52a4eefc7"
+        address: "" // example contract reference: 0x75d2a734489e594111dd7256e0d9cef52a4eefc7
       },
     },
     
