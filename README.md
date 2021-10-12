@@ -33,8 +33,8 @@ additional resource: https://medium.com/builders-of-zilliqa/token-distributors-i
 - node 12.12
 
 ## instructions to run ##
-- `git clone https://github.com/PackagePortal/zil-token-distro.git`
-- `cd zil-token-distro`
+- `git clone https://github.com/PackagePortal/zrc-token-distro.git`
+- `cd zrc-token-distro`
 - `npm install`
 
 - configure ENV (dev|prod|sim) & PK (a zilliqa wallet with sufficient gas's private key) variables in a local .env
