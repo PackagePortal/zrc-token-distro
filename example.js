@@ -3,7 +3,7 @@ const blockchain = require('./src/services/blockchain');
 const { MerkleTransaction } = require('./src/distribution/merkle');
 const models = require('./components/models');
 
-async function constructMerkleRoot(leaves, completion) {
+async function constructAndSetMerkleRoot(leaves, completion) {
     // construct merkle root with transactions for current epoch
   	await distributor.constructMerkleRoot(leaves, async (merkle) => {
   		// set merkle root on distributor contract
@@ -36,7 +36,7 @@ async function ConstructMerkleRootAndClaimExample() {
     new MerkleTransaction("0x628A50C412b9Da136bE7D8401e101Ca46b3863B4", 2)
   ];
 
-	await constructMerkleRoot(sampleTransactions, async (merkle) => {
+	await constructAndSetMerkleRoot(sampleTransactions, async (merkle) => {
 		// example claim on the first transaction
 		await claim(merkle.leaves[0]);
 	});

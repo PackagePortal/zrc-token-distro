@@ -8,7 +8,7 @@ const {
 
 module.exports = {
   transactions: {
-	 build(operation, params, tag, metadata) {
+	 build(operation, params, tag) {
 		let operations = {	
       SetMerkleRoot: {
         params: [{
