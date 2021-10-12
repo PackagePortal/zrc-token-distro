@@ -37,7 +37,7 @@ additional resource: https://medium.com/builders-of-zilliqa/token-distributors-i
 - `cd zrc-token-distro`
 - `npm install`
 
-- configure ENV (dev|prod|sim) & PK (a zilliqa wallet with sufficient gas's private key) variables in a local .env
+- configure `ENV` (dev|prod|sim) & `PK` (a zilliqa wallet with sufficient gas's private key) variables in a local .env
 - add respective contract address into `config.js` per environment (or use the example listed under dev)
 - `node example-cron` (set merkle cron example)
 - `node example` (set merkle root & claim example)
