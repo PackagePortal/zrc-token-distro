@@ -45,5 +45,5 @@ additional resource: https://medium.com/builders-of-zilliqa/token-distributors-i
 - `node example` (set merkle root & claim example)
 
 ## run tests ##
-- `./node_modules/mocha/bin/mocha tests -s 0` (`tests/test.js`)
+- `npm test tests/*`
 
