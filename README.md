@@ -1,3 +1,5 @@
+welcome! the aim of this repo is to provide a working, simple example for zrc token distributions, & work as a resource for anyone looking to build a backend system for this distribution model.
+
 ## what is a token distributor? ##
 - token distributors are smart contracts that allow for both validating inclusion for a certain transaction that was stored previously, as well as fasciliating some sort of crediting for said inclusion. the most obvious example is crediting users for transactions they've propogated in the past, like liquidity adds or removals for LP rewards. these contracts leverage the merkle tree data structure for the claim verification.
 
