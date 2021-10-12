@@ -21,8 +21,11 @@ async function constructMerkleRoot(transactions, completion) {
     const tree = new MerkleTree(leaves, keccak256, { sortLeaves: true, sort: true } ); // the distributor contract in this example sorts leaves, and uses keccak256
     const root = tree.getRoot().toString('hex');
     
-    transactions = transactions.map((x) => { x.setTree(tree); return x; }); // align with tree (root, and proofs)
-    transactions = transactions.map((x) => { x.epoch = String(epoch); return x; }); // override with current epoch; probably necessary if storing somewhere
+    transactions = transactions.map((x) => { 
+      x.setTree(tree); // align with tree (root, and proofs)
+      x.epoch = String(epoch) // override with current epoch; probably necessary if storing somewhere
+      return x; 
+    }); 
 
     completion({ leaves: transactions, epoch: epoch, root: root });
   } catch (ex) {
