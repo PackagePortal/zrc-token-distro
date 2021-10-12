@@ -1,7 +1,5 @@
-const { Zilliqa } = require('@zilliqa-js/zilliqa');
 const { MerkleTransaction, MerkleTree, hash} = require('../distribution/merkle');
 const blockchain = require('./blockchain');
-const models = require('../../components/models');
 const config = require('../../components/config');
 const keccak256 = require('keccak256');
 

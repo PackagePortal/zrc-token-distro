@@ -1,8 +1,6 @@
 const config = require('../components/config');
 const { BN, Long, bytes, units } = require('@zilliqa-js/util');
 const {
-  fromBech32Address,
-  toBech32Address,
   getAddressFromPrivateKey,
 } = require('@zilliqa-js/crypto'); // https://github.com/Zilliqa/Zilliqa-JavaScript-Library/tree/dev/packages/zilliqa-js-crypto
 
