@@ -6,11 +6,6 @@ dotenv.config();
 
 module.exports = {
   env: process.env.ENV,
-
-  scilla_version: "0",
-  blockInterval: 10000, // 10000 : 10 seconds for one block
-  blockStart: 0,
-  gasPrice: 1, // ratio of gas to zil (dummy value of 1:1)
   nonce: 1, 
   
   prod: {
@@ -55,13 +50,5 @@ module.exports = {
     gasLimit: Long.fromNumber(10000),
 
     walletPrivateKey: process.env.PK,
-  },
-
-  // tests
-  tests: {
-    account: {
-      testPrivateKey: "",
-      testAddress: ""
-    }
   }
 };
