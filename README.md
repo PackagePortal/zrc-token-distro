@@ -2,7 +2,7 @@ welcome! the aim of this repo is to provide a working, simple example for zrc to
 
 ## what is a token distributor? ##
 - token distributors are smart contracts that allow for both validating inclusion for a certain transaction that was stored previously, as well as fasciliating some sort of crediting for said inclusion. the most obvious example is crediting users for transactions they've propogated in the past, like liquidity adds or removals for LP rewards. these contracts leverage the merkle tree data structure for the claim verification.
-- [distributor.scilla](https://github.com/PackagePortal/zrc-contracts/contracts/distributor.scilla) [specs](https://github.com/PackagePortal/zrc-contracts/specs/Distributor.md)
+- [distributor.scilla](https://github.com/PackagePortal/zrc-contracts/tree/main/contracts/distributor.scilla) | [specs](https://github.com/PackagePortal/zrc-contracts/tree/main/specs/Distributor.md)
 
 ## how does a merkle tree work? ##
 - the Merkle Tree is a data structure mainly used for validating inclusion within a dataset quickly using hashes. (very similar to a binary hash tree) for a quick overview via the library we used, see: https://github.com/miguelmota/merkletreejs
