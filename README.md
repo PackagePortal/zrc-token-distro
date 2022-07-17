@@ -1,13 +1,14 @@
-welcome! the aim of this repo is to provide a working, simple example for zrc token distributions, & work as a resource for anyone looking to build a backend system for this distribution model.
+# ZRC Token Merkle Distribution #
+Welcome! the aim of this repo is to provide a working, simple example for zrc token distributions, & work as a resource for anyone looking to build a backend system for this distribution model.
 
-## what is a token distributor? ##
+## What is a token distributor? ##
 - token distributors are smart contracts that allow for both validating inclusion for a certain transaction that was stored previously, as well as fasciliating some sort of crediting for said inclusion. the most obvious example is crediting users for transactions they've propogated in the past, like liquidity adds or removals for LP rewards. these contracts leverage the merkle tree data structure for the claim verification.
 - [distributor.scilla](https://github.com/PackagePortal/zrc-contracts/tree/main/contracts/distributor.scilla) | [specs](https://github.com/PackagePortal/zrc-contracts/tree/main/specs/Distributor.md)
 
-## how does a merkle tree work? ##
+## How does a merkle tree work? ##
 - the Merkle Tree is a data structure mainly used for validating inclusion within a dataset quickly using hashes. (very similar to a binary hash tree) for a quick overview via the library we used, see: https://github.com/miguelmota/merkletreejs
 
-## what's the overall flow? ##
+## What's the overall flow? ##
 - first, lets say you have some input of transactions that you want to "store", and some users that want to claim rewards for these transactions. periodically, you'd set a merkle root - essentially the head hash of a previously constructed merkle tree that contains transactions per a specific time period, or epoch. depending on how much you want to leave on the end-user for validating their inclusion to claim their reward, you may want to store these transactions with their respective proofs somewhere to ease the claiming process. then, when a user sends a claim request, your system can lookup the respective transactions proof internally, provide that for the user and help them claim the reward. while your system helps prove inclusion for the user, its a means of fascilitating a reward system reliant on the user manually claiming vs. crediting per transaction separately, which could become quite the gas guzzler. 
 - example: for epoch 0 (the starting period), you'd construct a merkle tree for all the transactions that transpired over this epoch,
 ```
@@ -32,10 +33,10 @@ transition Claim(claim: Claim)
 
 additional resource: https://medium.com/builders-of-zilliqa/token-distributors-in-scilla-b37241f7466a
 
-## example's requirements ##
+## Requirements ##
 - node 12.12
 
-## instructions to run ##
+## Instructions to run ##
 - `git clone https://github.com/PackagePortal/zrc-token-distro.git`
 - `cd zrc-token-distro`
 - `npm install`
@@ -45,6 +46,6 @@ additional resource: https://medium.com/builders-of-zilliqa/token-distributors-i
 - `node example-cron` (set merkle cron example)
 - `node example` (set merkle root & claim example)
 
-## run tests ##
+## Run tests ##
 - `npm test`
 
